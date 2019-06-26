@@ -16,7 +16,6 @@ class CharacterListView extends React.Component {
         <p>Data is being retrieved</p>
       );
     }
-    {console.log(`call from ${this.props}`)}
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
@@ -26,10 +25,9 @@ class CharacterListView extends React.Component {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    characters: state.characters,
-    fetching: state.fetching
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching
   }
 }
 
