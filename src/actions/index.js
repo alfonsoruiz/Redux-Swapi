@@ -10,7 +10,7 @@ export const getData = () => dispatch => {
     axios.get('https://swapi.co/api/people/')
         .then(res => {
             console.log(res)
-            dispatch({ type: FETCH_SUCCESS, payload:  res.results})
+            dispatch({ type: FETCH_SUCCESS, payload:  res.data.results})
         })
         .catch(err => {
             dispatch({ type: FETCH_FAILURE, payload: err })

@@ -5,9 +5,6 @@ import { getData } from '../actions';
 import { CharacterList } from "../components";
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     this.props.getData();
@@ -15,8 +12,11 @@ class CharacterListView extends React.Component {
 
   render() {
     if (this.props.fetching) {
-      // return something here to indicate that you are fetching data
+      return (
+        <p>Data is being retrieved</p>
+      );
     }
+    {console.log(`call from ${this.props}`)}
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
@@ -26,6 +26,7 @@ class CharacterListView extends React.Component {
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     characters: state.characters,
     fetching: state.fetching
